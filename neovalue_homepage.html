@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoValue: Exit the Old Economy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      position: relative;
+      display: inline-block;
+      -webkit-text-stroke: 1px #00ffd1;
+    }
+    
+    header h2 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      display: inline-block;
+    }
+    .slogan {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #aaaaaa;
+    }
+    .section-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 24px rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #ffffff;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(255, 255, 255, 0.1);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+    .card p {
+      color: #cccccc;
+      font-size: 1rem;
+    }
+      
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 10px 10px rgba(255, 77, 77, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NeoValue</h1>
+    <hr style="width: 60px; margin: 1.5rem auto; border: 1px solid #ffffff; opacity: 0.5;">
+    <h2>Exit the Old Economy</h2>
+    <p class="slogan" style="font-size: 1.1rem;" >기존의 가치에 질문하라.<br>새로운 질서에 먼저 도달하라.</p>
+    <p class="slogan" style="margin-top: 3rem; font-size: 1rem; color: #cccccc; font-style: italic;">
+      곧 다가올 미래에 대한 깨어있는 사람들의 신호탑.
+    </p>
+    <p class="slogan" style="margin-top: 0.5rem; font-size: 1rem; color: #00ffd1; font-weight: 600;">
+      NeoValue는 무너지는 경제 패러다임 속에서 새로운 삶의 가치를 찾는 사람들을 위한 탈출 지도입니다.
+    </p>
+  </header>
+
+  <section class="section-list">
+    <div class="card" style="background: #3a0000; border: 2px solid #ff4d4d; animation: pulse 2s infinite;">
+      <h3 style="font-size: 1.8rem;">🚨 현실진단</h3>
+      <p style="font-size: 1.1rem; color: #ffcccc; font-weight: 500;">
+        더 이상 기다릴 수 없다.<br>
+        인플레이션, 임금 정체, 인구 소멸, 환경 재앙…<br>
+        우리는 진실을 직면해야 한다.
+      </p>
+      <a href="diagnosis.html" style="margin-top: 1.5rem; display: inline-block; padding: 1rem 2rem; background-color: #ff4d4d; color: #ffffff; border: none; border-radius: 10px; font-size: 1rem; font-weight: bold; cursor: pointer; text-decoration: none; transition: background-color 0.3s ease;">시작하겠습니까?</a>
+    </div>
+  </section>
+</body>
+</html>
