@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>현실진단 - 실시간 CPI</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Pretendard', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 3rem;
+      color: transparent;
+      -webkit-text-stroke: 1px #00ffd1;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-top: 1rem;
+    }
+    #chart-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NeoValue</h1>
+    <h2>📈 미국 CPI 추이 (실시간 예시)</h2>
+  </header>
+
+  <div id="chart-container">
+    <canvas id="cpiChart"></canvas>
+  </div>
+
+  <script>
+    // 실제로는 fetch("https://api.example.com/cpi") 형태로 구성
+    const labels = ["2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12"];
+    const data = [6.4, 6.0, 5.0, 4.9, 4.0, 3.0, 3.2, 3.7, 3.7, 3.2, 3.1, 3.4]; // 예시 데이터
+
+    const ctx = document.getElementById('cpiChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '미국 CPI (%)',
+          data: data,
+          borderColor: '#00ffd1',
+          backgroundColor: 'rgba(0,255,209,0.1)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ffffff'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#ffffff'
+            }
+          },
+          y: {
+            ticks: {
+              color: '#ffffff'
+            },
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
