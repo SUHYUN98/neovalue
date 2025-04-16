@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NeoValue - 현실진단 시나리오</title>
+  <title>현실진단 - NeoValue</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,7 +15,36 @@
       background-color: #000;
       color: #fff;
       font-family: 'Pretendard', sans-serif;
-      overflow-x: hidden;
+    }
+    nav {
+      width: 100%;
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 1px #00ffd1;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav .nav-links a:hover {
+      color: #00ffd1;
     }
     .scene {
       display: none;
@@ -28,12 +57,6 @@
     }
     .scene.active {
       display: flex;
-    }
-    h1 {
-      font-size: 3rem;
-      color: transparent;
-      -webkit-text-stroke: 1px #00ffd1;
-      margin-bottom: 1rem;
     }
     h2 {
       font-size: 2rem;
@@ -64,8 +87,14 @@
 </head>
 <body>
 
+  <nav>
+    <a href="index.html" class="logo">NeoValue</a>
+    <div class="nav-links">
+      <a href="neovalue_community.html">사연 쓰기</a>
+    </div>
+  </nav>
+
   <div class="scene active" id="scene1">
-    <h1>NeoValue</h1>
     <h2>Scene 1 — 임금은 멈췄고, 물가는 뛴다</h2>
     <p>일을 더 많이 해도 삶이 나아지지 않는다. 실질임금은 멈췄고, 생활비는 매달 높아진다.  
     ‘왜 이렇게 사는 걸까?’ 라는 질문이 다시 떠오른다.</p>
@@ -73,7 +102,6 @@
   </div>
 
   <div class="scene" id="scene2">
-    <h1>NeoValue</h1>
     <h2>Scene 2 — 빚으로 숨 쉬는 가계</h2>
     <p>대한민국의 가계부채는 세계 최고 수준. 영끌, 빚투, 카드 돌려막기…  
     우리는 미래를 담보로 오늘을 버티고 있다.</p>
@@ -81,7 +109,6 @@
   </div>
 
   <div class="scene" id="scene3">
-    <h1>NeoValue</h1>
     <h2>Scene 3 — 일할 사람이 사라지고 있다</h2>
     <p>고령화와 출산율 저하로 인해 경제를 떠받칠 인구가 줄어든다.  
     연금은 버틸 수 있을까? 미래 세대는?</p>
@@ -89,7 +116,6 @@
   </div>
 
   <div class="scene" id="scene4">
-    <h1>NeoValue</h1>
     <h2>Scene 4 — 시스템이 만든 폐기물: 환경의 붕괴</h2>
     <p>지구는 이미 임계점을 넘었다.  
     플라스틱, 온난화, 해양오염... 우리가 쓴 비용은 지구가 치르고 있다.</p>
@@ -97,7 +123,6 @@
   </div>
 
   <div class="scene" id="scene5">
-    <h1>NeoValue</h1>
     <h2>Scene 5 — 무기력한 세대, 흔들리는 심리</h2>
     <p>기술은 발전했지만 사람은 점점 외로워진다.  
     일자리 불안, 플랫폼 노동, 소외된 세대… 정신은 이미 탈진 상태다.</p>
