@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeoValue - 현실진단 시나리오</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Pretendard', sans-serif;
+      overflow-x: hidden;
+    }
+    .scene {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    .scene.active {
+      display: flex;
+    }
+    h1 {
+      font-size: 3rem;
+      color: transparent;
+      -webkit-text-stroke: 1px #00ffd1;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #cccccc;
+      max-width: 600px;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #00ffd1;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #00e0b0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene active" id="scene1">
+    <h1>NeoValue</h1>
+    <h2>Scene 1 — 임금은 멈췄고, 물가는 뛴다</h2>
+    <p>일을 더 많이 해도 삶이 나아지지 않는다. 실질임금은 멈췄고, 생활비는 매달 높아진다.  
+    ‘왜 이렇게 사는 걸까?’ 라는 질문이 다시 떠오른다.</p>
+    <button onclick="nextScene(2)">다음 진실로 이동하기</button>
+  </div>
+
+  <div class="scene" id="scene2">
+    <h1>NeoValue</h1>
+    <h2>Scene 2 — 빚으로 숨 쉬는 가계</h2>
+    <p>대한민국의 가계부채는 세계 최고 수준. 영끌, 빚투, 카드 돌려막기…  
+    우리는 미래를 담보로 오늘을 버티고 있다.</p>
+    <button onclick="nextScene(3)">더 이상 미룰 수 없다</button>
+  </div>
+
+  <div class="scene" id="scene3">
+    <h1>NeoValue</h1>
+    <h2>Scene 3 — 일할 사람이 사라지고 있다</h2>
+    <p>고령화와 출산율 저하로 인해 경제를 떠받칠 인구가 줄어든다.  
+    연금은 버틸 수 있을까? 미래 세대는?</p>
+    <button onclick="nextScene(4)">다음 진단 보기</button>
+  </div>
+
+  <div class="scene" id="scene4">
+    <h1>NeoValue</h1>
+    <h2>Scene 4 — 시스템이 만든 폐기물: 환경의 붕괴</h2>
+    <p>지구는 이미 임계점을 넘었다.  
+    플라스틱, 온난화, 해양오염... 우리가 쓴 비용은 지구가 치르고 있다.</p>
+    <button onclick="nextScene(5)">마지막 진단으로</button>
+  </div>
+
+  <div class="scene" id="scene5">
+    <h1>NeoValue</h1>
+    <h2>Scene 5 — 무기력한 세대, 흔들리는 심리</h2>
+    <p>기술은 발전했지만 사람은 점점 외로워진다.  
+    일자리 불안, 플랫폼 노동, 소외된 세대… 정신은 이미 탈진 상태다.</p>
+    <button onclick="nextScene(1)">다시 보기</button>
+  </div>
+
+  <script>
+    function nextScene(sceneNumber) {
+      const scenes = document.querySelectorAll(".scene");
+      scenes.forEach(scene => scene.classList.remove("active"));
+      document.getElementById("scene" + sceneNumber).classList.add("active");
+    }
+  </script>
+</body>
+</html>
