@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeoValue 커뮤니티</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Pretendard', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #00ffd1;
+      margin-bottom: 1rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      margin-top: 0.5rem;
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+    button {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #00ffd1;
+      border: none;
+      border-radius: 6px;
+      color: #000000;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .story {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .story h3 {
+      margin: 0 0 0.5rem;
+      color: #ffffff;
+    }
+    .story p {
+      margin: 0;
+      color: #cccccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>NeoValue 사연 공유</h1>
+
+  <div class="form-group">
+    <label for="title">제목</label>
+    <input type="text" id="title" placeholder="제목을 입력하세요">
+  </div>
+  <div class="form-group">
+    <label for="content">내용</label>
+    <textarea id="content" rows="6" placeholder="당신의 이야기를 들려주세요 (익명)"></textarea>
+  </div>
+  <button onclick="submitStory()">작성하기</button>
+
+  <h2 style="margin-top: 3rem;">📚 작성된 사연</h2>
+  <div id="storyList"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDiwn38GbjNL8MAQSkS1ccHQf5bWOASfAs",
+      authDomain: "neodevelop-426e2.firebaseapp.com",
+      projectId: "neodevelop-426e2",
+      storageBucket: "neodevelop-426e2.firebasestorage.app",
+      messagingSenderId: "264251715249",
+      appId: "1:264251715249:web:1d7d36d46b6bee9334bc90",
+      measurementId: "G-7E8V2MSM6V"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function submitStory() {
+      const title = document.getElementById("title").value.trim();
+      const content = document.getElementById("content").value.trim();
+
+      if (!title || !content) {
+        alert("제목과 내용을 모두 입력해주세요.");
+        return;
+      }
+
+      await addDoc(collection(db, "stories"), {
+        title: title,
+        content: content,
+        createdAt: new Date()
+      });
+
+      document.getElementById("title").value = "";
+      document.getElementById("content").value = "";
+      loadStories();
+    }
+
+    async function loadStories() {
+      const storyList = document.getElementById("storyList");
+      storyList.innerHTML = "";
+      const q = query(collection(db, "stories"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const storyDiv = document.createElement("div");
+        storyDiv.className = "story";
+        storyDiv.innerHTML = `<h3>${data.title}</h3><p>${data.content}</p>`;
+        storyList.appendChild(storyDiv);
+      });
+    }
+
+    loadStories();
+  </script>
+</body>
+</html>
