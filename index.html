@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -31,7 +32,6 @@
       display: inline-block;
       -webkit-text-stroke: 1px #00ffd1;
     }
-    
     header h2 {
       font-size: 2rem;
       color: #ffffff;
@@ -70,7 +70,32 @@
       color: #cccccc;
       font-size: 1rem;
     }
-      
+    .card-btn {
+      margin-top: 1.5rem;
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #00ffd1;
+      color: #000000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .card-btn:hover {
+      background-color: #00ccaa;
+    }
+    .card.alert {
+      background: #3a0000;
+      border: 2px solid #ff4d4d;
+      animation: pulse 2s infinite;
+    }
+    .card.alert p {
+      color: #ffcccc;
+      font-weight: 500;
+    }
     @keyframes pulse {
       0% {
         box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.4);
@@ -89,7 +114,7 @@
     <h1>NeoValue</h1>
     <hr style="width: 60px; margin: 1.5rem auto; border: 1px solid #ffffff; opacity: 0.5;">
     <h2>Exit the Old Economy</h2>
-    <p class="slogan" style="font-size: 1.1rem;" >기존의 가치에 질문하라.<br>새로운 질서에 먼저 도달하라.</p>
+    <p class="slogan">기존의 가치에 질문하라.<br>새로운 질서에 먼저 도달하라.</p>
     <p class="slogan" style="margin-top: 3rem; font-size: 1rem; color: #cccccc; font-style: italic;">
       곧 다가올 미래에 대한 깨어있는 사람들의 신호탑.
     </p>
@@ -99,14 +124,34 @@
   </header>
 
   <section class="section-list">
-    <div class="card" style="background: #3a0000; border: 2px solid #ff4d4d; animation: pulse 2s infinite;">
-      <h3 style="font-size: 1.8rem;">🚨 현실진단</h3>
-      <p style="font-size: 1.1rem; color: #ffcccc; font-weight: 500;">
-        더 이상 기다릴 수 없다.<br>
-        인플레이션, 임금 정체, 인구 소멸, 환경 재앙…<br>
-        우리는 진실을 직면해야 한다.
-      </p>
-      <a href="diagnosis.html" style="margin-top: 1.5rem; display: inline-block; padding: 1rem 2rem; background-color: #ff4d4d; color: #ffffff; border: none; border-radius: 10px; font-size: 1rem; font-weight: bold; cursor: pointer; text-decoration: none; transition: background-color 0.3s ease;">시작하겠습니까?</a>
+    <div class="card alert">
+      <h3>🚨 현실진단</h3>
+      <p>더 이상 기다릴 수 없다.<br>인플레이션, 임금 정체, 인구 소멸, 환경 재앙…<br>우리는 진실을 직면해야 한다.</p>
+      <a href="diagnosis.html" class="card-btn">시작하겠습니까?</a>
+    </div>
+
+    <div class="card">
+      <h3>🔍 대안 탐색</h3>
+      <p>무너지는 시스템 안에서 우리가 택할 수 있는 선택지는 무엇인가? 다양한 가능성을 분석하고 실험한다.</p>
+      <a href="alt1_full.html" class="card-btn">탐색하러 가기</a>
+    </div>
+
+    <div class="card">
+      <h3>🌱 생존 전략</h3>
+      <p>경제적 자립, 기술 습득, 커뮤니티 구축 등 지금 바로 실행 가능한 생존 전략들을 제시한다.</p>
+      <a href="strategy.html" class="card-btn">전략 보기</a>
+    </div>
+
+    <div class="card">
+      <h3>🧭 새로운 질서</h3>
+      <p>Web3, 탈중앙화, 새로운 사회적 계약… 우리는 어떤 질서를 만들어가야 하는가?</p>
+      <a href="order.html" class="card-btn">미래 보기</a>
+    </div>
+
+    <div class="card">
+      <h3>✍️ 커뮤니티</h3>
+      <p>생각을 공유하고 질문을 던지며 서로에게 나침반이 되어줄 공간. 익명성과 깊이를 존중하는 대화의 장.</p>
+      <a href="neovalue_community.html" class="card-btn">사연 쓰기</a>
     </div>
   </section>
 </body>
